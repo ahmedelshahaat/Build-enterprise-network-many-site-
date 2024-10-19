@@ -1,0 +1,1017 @@
+configruation Branch 1  VLAN ,inter VLAN ,HSRP,etherchannel ,ssh ,portsecurity ,bpdugruad,portfast ,ospf 
+
+B1-ASW1(config-vlan)#name  Sales 
+B1-ASW1(config)#vlan 20
+B1-ASW1(config-vlan)#name  IT
+B1-ASW1(config)#vlan 30
+B1-ASW1(config-vlan)#name  HR
+B1-ASW1(config)#vlan 40
+B1-ASW1(config-vlan)#name  Manger 
+B1-ASW1(config)#interface range f0/5-7
+B1-ASW1(config-if-range)#switchport  mode  acces
+B1-ASW1(config-if-range)#switchport access vlan 10
+B1-ASW1(config)#interface range f0/5-7
+B1-ASW1(config-if-range)# switchport mode access
+B1-ASW1(config-if-range)# switchport port-security
+B1-ASW1(config-if-range)#switchport port-security mac-address sticky 
+B1-ASW1(config-if-range)# switchport port-security violation restrict 
+B1-ASW1(config-if-range)# spanning-tree portfast
+B1-ASW1(config-if-range)# spanning-tree guard root
+B1-ASW1(config-if-range)# spanning-tree bpduguard enable 
+B1-ASW1(config)#interface range f0/1-2
+B1-ASW1(config-if-range)#switchport  mode  trunk 
+
+
+
+B1-ASW2(config)#vlan 10 
+B1-ASW2(config-vlan)#name  Sales 
+B1-ASW2(config)#vlan 20
+B1-ASW2(config-vlan)#name  IT
+B1-ASW2(config)#vlan 30
+B1-ASW2(config-vlan)#name  HR
+B1-ASW2(config)#vlan 40
+B1-ASW2(config-vlan)#name  Manger 
+B1-ASW2(config)#interface range f0/5-7
+B1-ASW2(config-if-range)#switchport  mode  acces
+B1-ASW2(config-if-range)#switchport access vlan 20
+B1-ASW2(config)#interface range f0/5-7
+B1-ASW2(config-if-range)# switchport mode access
+B1-ASW2(config-if-range)# switchport port-security
+B1-ASW2(config-if-range)#switchport port-security mac-address sticky 
+B1-ASW2(config-if-range)# switchport port-security violation restrict 
+B1-ASW2(config-if-range)# spanning-tree portfast
+B1-ASW2(config-if-range)# spanning-tree guard root
+B1-ASW2(config-if-range)# spanning-tree bpduguard enable 
+B1-ASW2(config)#interface range f0/1-2
+B1-ASW2(config-if-range)#switchport  mode  trunk 
+
+
+
+
+B1-ASW3(config)#vlan 10 
+B1-ASW3(config-vlan)#name  Sales 
+B1-ASW3(config)#vlan 20
+B1-ASW3(config-vlan)#name  IT
+B1-ASW3(config)#vlan 30
+B1-ASW3(config-vlan)#name  HR
+B1-ASW3(config)#vlan 40
+B1-ASW3(config-vlan)#name  Manger 
+B1-ASW3(config)#interface range f0/5-7
+B1-ASW3(config-if-range)#switchport  mode  acces
+B1-ASW3(config-if-range)#switchport access vlan 30
+B1-ASW3(config)#interface range f0/5-7
+B1-ASW3(config-if-range)# switchport mode access
+B1-ASW3(config-if-range)# switchport port-security
+B1-ASW3(config-if-range)#switchport port-security mac-address sticky 
+B1-ASW3(config-if-range)# switchport port-security violation restrict 
+B1-ASW3(config-if-range)# spanning-tree portfast
+B1-ASW3(config-if-range)# spanning-tree guard root
+B1-ASW3(config-if-range)# spanning-tree bpduguard enable 
+B1-ASW3(config)#interface range f0/3-4
+B1-ASW3(config-if-range)#switchport  mode  trunk 
+
+B1-ASW4(config)#vlan 10 
+B1-ASW4(config-vlan)#name  Sales 
+B1-ASW4(config)#vlan 20
+B1-ASW4(config-vlan)#name  IT
+B1-ASW4(config)#vlan 30
+B1-ASW4(config-vlan)#name  HR
+B1-ASW4(config)#vlan 40
+B1-ASW4(config-vlan)#name  Manger 
+B1-ASW4(config)#interface range f0/5-7
+B1-ASW4(config-if-range)#switchport  mode  acces
+B1-ASW4(config-if-range)#switchport access vlan 40 
+B1-ASW4(config)#interface range f0/5-7
+B1-ASW4(config-if-range)# switchport mode access
+B1-ASW4(config-if-range)# switchport port-security
+B1-ASW4(config-if-range)#switchport port-security mac-address sticky 
+B1-ASW4(config-if-range)# switchport port-security violation restrict 
+B1-ASW4(config-if-range)# spanning-tree portfast
+B1-ASW4(config-if-range)# spanning-tree guard root
+B1-ASW4(config-if-range)# spanning-tree bpduguard enable 
+B1-ASW4(config)#interface range f0/3-4
+B1-ASW4(config-if-range)#switchport  mode  trunk 
+
+
+
+
+B1-DSW1(config)#ip routing  ********** 
+B1-DSW1(config)#vlan 10 
+B1-DSW1(config-vlan)#name  Sales 
+B1-DSW1(config)#vlan 20
+B1-DSW1(config-vlan)#name  IT
+B1-DSW1(config)#vlan 30
+B1-DSW1(config-vlan)#name  HR
+B1-DSW1(config)#vlan 40
+B1-DSW1(config-vlan)#name  Manger 
+B1-DSW1(config)#interface range f0/1-4 
+B1-DSW1(config)#switchport  trunk  encasp dot1q 
+B1-DSW1(config)#switchport  mode  trunk 
+B1-DSW1(config)#interface  vlan  10 
+B1-DSW1(config-if)# ip add 192.168.10.1 255.255.255.0
+B1-DSW1(config-if)# no  sh	
+B1-DSW1(config)#interface  vlan  20
+B1-DSW1(config-if)# ip add 192.168.20.1 255.255.255.0
+B1-DSW1(config-if)# no  sh	
+B1-DSW1(config)#interface  vlan  30 
+B1-DSW1(config-if)# ip add 192.168.30.1 255.255.255.0
+B1-DSW1(config-if)# no  sh	
+B1-DSW1(config)#interface  vlan  40
+B1-DSW1(config-if)# ip add 192.168.40.1 255.255.255.0
+B1-DSW1(config-if)# no  sh	
+B1-DSW1(config)#interface range f0/23-24
+B1-DSW1(config-if)# channel-group 1 mode on 
+B1-DSW1(config-if)#switchport  trunk  encasp dot1q 
+B1-DSW1(configif)#switchport  mode  trunk 
+B1-DSW1(config)#interface  vlan  10 
+B1-DSW1(config-if)#standby 10 ip 192.168.10.100
+B1-DSW1(config)#interface  vlan 20
+B1-DSW1(config-if)#standby 20 ip 192.168.20.100
+B1-DSW1(config)#interface  vlan 30
+B1-DSW1(config-if)#standby 30 ip 192.168.30.100
+B1-DSW1(config)#interface  vlan 40
+B1-DSW1(config-if)#standby 40 ip 192.168.40.100
+B1-DSW1(config)#ip domain-name branch1 
+B1-DSW1(config)#crypto key gen rsa 
+B1-DSW1(config)#line vty 0 4  
+B1-DSW1(config-line)#transport input ssh 
+B1-DSW1(config-line)#login local 
+B1-DSW1(config-line)#exit
+B1-DSW1(config)username Admin pri 15 password 1234
+B1-DSW1(config)enable secret 1234
+B1-DSW1(config)int g0/1
+B1-DSW1(config-if)no switchport 
+B1-DSW1(config-if)ip add 11.0.0.2 255.0.0.0 
+B1-DSW1(config-if)no sh	
+B1-DSW1(config)#router ospf1 
+B1-DSW1(config-router)# network 192.168.10.0 0.0.0.255 area 0
+B1-DSW1(config-router)# network 192.168.20.0 0.0.0.255 area 0
+B1-DSW1(config-router)# network 192.168.30.0 0.0.0.255 area 0
+B1-DSW1(config-router)# network 192.168.40.0 0.0.0.255 area 0
+B1-DSW1(config-router)# network 11.0.0.0 0.255.255.255 area 0
+
+
+
+B1-DSW2(config)#ip routing  *********
+B1-DSW2(config)#vlan 10 
+B1-DSW2(config-vlan)#name  Sales 
+B1-DSW2(config)#vlan 20
+B1-DSW2(config-vlan)#name  IT
+B1-DSW2(config)#vlan 30
+B1-DSW2(config-vlan)#name  HR
+B1-DSW2(config)#vlan 40
+B1-DSW2(config-vlan)#name  Manger 
+B1-DSW2(config)#interface range f0/1-4 
+B1-DSW2(config)#switchport  trunk  encasp dot1q 
+B1-DSW2(config)#switchport  mode  trunk 
+B1-DSW2(config)#interface  vlan  10 
+B1-DSW2(config-if)# ip add 192.168.10.1 255.255.255.0
+B1-DSW2(config-if)# no  sh	
+B1-DSW2(config)#interface  vlan  20
+B1-DSW2(config-if)# ip add 192.168.20.1 255.255.255.0
+B1-DSW2(config-if)# no  sh	
+B1-DSW2(config)#interface  vlan  30 
+B1-DSW2(config-if)# ip add 192.168.30.1 255.255.255.0
+B1-DSW2(config-if)# no  sh	
+B1-DSW2(config)#interface  vlan  40
+B1-DSW2(config-if)# ip add 192.168.40.1 255.255.255.0
+B1-DSW2(config-if)# no  sh	
+B1-DSW2(config)#interface range f0/23-24
+B1-DSW2(config-if)# channel-group 1 mode on 
+B1-DSW2(config-if)#switchport  trunk  encasp dot1q 
+B1-DSW2(configif)#switchport  mode  trunk 
+B1-DSW2(config)#interface  vlan  10 
+B1-DSW2(config-if)#standby 10 ip 192.168.10.100
+B1-DSW2(config)#interface  vlan 20
+B1-DSW2(config-if)#standby 20 ip 192.168.20.100
+B1-DSW2(config)#interface  vlan 30
+B1-DSW2(config-if)#standby 30 ip 192.168.30.100
+B1-DSW2(config)#interface  vlan 40
+B1-DSW2(config-if)#standby 40 ip 192.168.40.100
+B1-DSW2(config)#ip domain-name branch1 
+B1-DSW2(config)#crypto key gen rsa 
+B1-DSW2(config)#line vty 0 4  
+B1-DSW2(config-line)#transport input ssh 
+B1-DSW2(config-line)#login local 
+B1-DSW2(config-line)#exit
+B1-DSW2(config)username Admin pri 15 password 1234
+B1-DSW2(config)enable secret 1234
+B1-DSW1(config)int g0/1
+B1-DSW1(config-if)no switchport 
+B1-DSW1(config-if)ip add 10.0.0.2 255.0.0.0 
+B1-DSW1(config-if)no sh	
+
+B1-DSW2(config)#router eigrp 1
+B1-DSW2(config-router)# network 192.168.10.0 0.0.0.255 
+B1-DSW2(config-router)# network 192.168.20.0 0.0.0.255 
+B1-DSW2(config-router)# network 192.168.30.0 0.0.0.255 
+B1-DSW2(config-router)# network 192.168.40.0 0.0.0.255 
+B1-DSW2(config-router)# network 10.0.0.0 0.255.255.255 
+
+
+
+
+B1-core_R(config)#int f0/0
+B1-core_R(config-if)#ip add  10.0.0.1 255.0.0.0 
+B1-core_R(config-if)#no sh
+B1-core_R(config)#int f0/1 
+B1-core_R(config-if)#ip add  11.0.0.1 255.0.0.0 
+B1-core_R(config-if)#no sh
+B1-core_R(config)#int f1/0
+B1-core_R(config-if)#ip add  17.0.0.1 255.0.0.0 
+B1-core_R(config-if)#no sh
+B1-core_R(config)#int f1/1 
+B1-core_R(config-if)#ip add  18.0.0.1 255.0.0.0 
+B1-core_R(config-if)#no sh 
+B1-core_R(config)#router eigrp 1
+B1-core_R(config-router)#network 10.0.0.0 0.255.255.255 
+B1-core_R(config-router)#network 11.0.0.0 0.255.255.255 
+B1-core_R(config-router)#network 17.0.0.0 0.255.255.255 
+B1-core_R(config-router)#network 18.0.0.0 0.255.255.255 
+B1-core_R(config)#ip route 0.0.0.0 0.0.0.0 17.0.0.4
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+configruation Branch 2  VLAN ,inter VLAN ,HSRP,etherchannel ,ssh ,portsecurity ,bpdugruad,portfast ,ospf 
+
+
+
+B2-ASW1(config-vlan)#name  Sales 
+B2-ASW1(config)#vlan 20
+B2-ASW1(config-vlan)#name  IT
+B2-ASW1(config)#vlan 30
+B2-ASW1(config-vlan)#name  HR
+B2-ASW1(config)#vlan 40
+B2-ASW1(config-vlan)#name  Manger 
+B2-ASW1(config)#interface range f0/5-7
+B2-ASW1(config-if-range)#switchport  mode  acces
+B2-ASW1(config-if-range)#switchport access vlan 10
+B2-ASW1(config)#interface range f0/5-7
+B2-ASW1(config-if-range)# switchport mode access
+B2-ASW1(config-if-range)# switchport port-security
+B2-ASW1(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW1(config-if-range)# switchport port-security violation restrict 
+B2-ASW1(config-if-range)# spanning-tree portfast
+B2-ASW1(config-if-range)# spanning-tree guard root
+B2-ASW1(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW1(config)#interface range f0/1-2
+B2-ASW1(config-if-range)#switchport  mode  trunk 
+
+
+
+B2-ASW2(config)#vlan 10 
+B21-ASW2(config-vlan)#name  Sales 
+B2-ASW2(config)#vlan 20
+B2-ASW2(config-vlan)#name  IT
+B2-ASW2(config)#vlan 30
+B2-ASW2(config-vlan)#name  HR
+B2-ASW2(config)#vlan 40
+B2-ASW2(config-vlan)#name  Manger 
+B2-ASW2(config)#interface range f0/5-7
+B2-ASW2(config-if-range)#switchport  mode  acces
+B2-ASW2(config-if-range)#switchport access vlan 20
+B2-ASW2(config)#interface range f0/5-7
+B2-ASW2(config-if-range)# switchport mode access
+B2-ASW2(config-if-range)# switchport port-security
+B2-ASW2(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW2(config-if-range)# switchport port-security violation restrict 
+B2-ASW2(config-if-range)# spanning-tree portfast
+B2-ASW2(config-if-range)# spanning-tree guard root
+B2-ASW2(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW2(config)#interface range f0/1-2
+B2-ASW2(config-if-range)#switchport  mode  trunk 
+
+
+
+
+B2-ASW3(config)#vlan 10 
+B2-ASW3(config-vlan)#name  Sales 
+B-ASW3(config)#vlan 20
+B2-ASW3(config-vlan)#name  IT
+B2-ASW3(config)#vlan 30
+B2-ASW3(config-vlan)#name  HR
+B2-ASW3(config)#vlan 40
+B2-ASW3(config-vlan)#name  Manger 
+B2-ASW3(config)#interface range f0/5-7
+B2-ASW3(config-if-range)#switchport  mode  acces
+B2-ASW3(config-if-range)#switchport access vlan 30
+B2-ASW3(config)#interface range f0/5-7
+B2-ASW3(config-if-range)# switchport mode access
+B2-ASW3(config-if-range)# switchport port-security
+B2-ASW3(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW3(config-if-range)# switchport port-security violation restrict 
+B2-ASW3(config-if-range)# spanning-tree portfast
+B2-ASW3(config-if-range)# spanning-tree guard root
+B2-ASW3(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW3(config)#interface range f0/3-4
+B2-ASW3(config-if-range)#switchport  mode  trunk 2
+
+
+B2ASW4(config)#vlan 10 
+B2-ASW4(config-vlan)#name  Sales 
+B2-ASW4(config)#vlan 20
+B2-ASW4(config-vlan)#name  IT
+B2-ASW4(config)#vlan 30
+B2-ASW4(config-vlan)#name  HR
+B2-ASW4(config)#vlan 40
+B2-ASW4(config-vlan)#name  Manger 
+B2-ASW4(config)#interface range f0/5-7
+B2-ASW4(config-if-range)#switchport  mode  acces
+B2-ASW4(config-if-range)#switchport access vlan 40 
+B2-ASW4(config)#interface range f0/5-7
+B2-ASW4(config-if-range)# switchport mode access
+B2-ASW4(config-if-range)# switchport port-security
+B2-ASW4(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW4(config-if-range)# switchport port-security violation restrict 
+B2-ASW4(config-if-range)# spanning-tree portfast
+B2-ASW4(config-if-range)# spanning-tree guard root
+B2-ASW4(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW4(config)#interface range f0/3-4
+B2-ASW4(config-if-range)#switchport  mode  trunk 
+
+
+
+
+
+
+
+
+B2-DSW1(config)#ip routing  ********** 
+B2-DSW1(config)#vlan 10 
+B2-DSW1(config-vlan)#name  Sales 
+B2-DSW1(config)#vlan 20
+B2-DSW1(config-vlan)#name  IT
+B2-DSW1(config)#vlan 30
+B2-DSW1(config-vlan)#name  HR
+B2-DSW1(config)#vlan 40
+B2-DSW1(config-vlan)#name  Manger 
+B2-DSW1(config)#interface range f0/1-4 
+B2-DSW1(config)#switchport  trunk  encasp dot1q 
+B2-DSW1(config)#switchport  mode  trunk 
+B2-DSW1(config)#interface  vlan  10 
+B2-DSW1(config-if)# ip add 192.168.50.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  20
+B2-DSW1(config-if)# ip add 192.168.60.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  30 
+B2-DSW1(config-if)# ip add 192.168.70.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  40
+B2-DSW1(config-if)# ip add 192.168.80.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface range f0/23-24
+B2-DSW1(config-if)# channel-group 1 mode on 
+B2-DSW1(config-if)#switchport  trunk  encasp dot1q 
+B2-DSW1(configif)#switchport  mode  trunk 
+B2-DSW1(config)#interface  vlan  10 
+B2-DSW1(config-if)#standby 10 ip 192.168.50.100
+B2-DSW1(config)#interface  vlan 20
+B2-DSW1(config-if)#standby 20 ip 192.168.60.100
+B2-DSW1(config)#interface  vlan 30
+B2-DSW1(config-if)#standby 30 ip 192.168.70.100
+B2-DSW1(config)#interface  vlan 40
+B2-DSW1(config-if)#standby 40 ip 192.168.80.100
+B2-DSW1(config)#ip domain-name branch2
+B2-DSW1(config)#crypto key gen rsa 
+B2-DSW1(config)#line vty 0 4  
+B2-DSW1(config-line)#transport input ssh 
+B2-DSW1(config-line)#login local 
+B2-DSW1(config-line)#exit
+B2-DSW1(config)username Admin pri 15 password 1234
+B2-DSW1(config)enable secret 1234
+B2-DSW1(config)int g0/1
+B2-DSW1(config-if)no switchport 
+B2-DSW1(config-if)ip add 14.0.0.2 255.0.0.0 
+B2-DSW1(config-if)no sh	
+B2-DSW1(config)#router eigrp 1 
+B2-DSW1(config-router)# network 192.168.50.0 0.0.0.255
+B2-DSW1(config-router)# network 192.168.60.0 0.0.0.255 
+B2-DSW1(config-router)# network 192.168.70.0 0.0.0.255 
+B2-DSW1(config-router)# network 192.168.80.0 0.0.0.255 
+B2-DSW1(config-router)# network 14.0.0.0 0.255.255.255
+
+
+
+
+
+
+B2-DSW2(config)#ip routing  ********** 
+B2-DSW2(config)#vlan 10 
+B2-DSW2(config-vlan)#name  Sales 
+B2-DSW2(config)#vlan 20
+B2-DSW2(config-vlan)#name  IT
+B2-DSW2(config)#vlan 30
+B2-DSW2(config-vlan)#name  HR
+B2-DSW2(config)#vlan 40
+B2-DSW2(config-vlan)#name  Manger 
+B2-DSW2(config)#interface range f0/1-4 
+B2-DSW2(config)#switchport  trunk  encasp dot1q 
+B2-DSW2(config)#switchport  mode  trunk 
+B2-DSW2(config)#interface  vlan  10 
+B2-DSW2(config-if)# ip add 192.168.50.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  20
+B2-DSW2(config-if)# ip add 192.168.60.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  30 
+B2-DSW2(config-if)# ip add 192.168.70.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  40
+B2-DSW2(config-if)# ip add 192.168.80.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface range f0/23-24
+B2-DSW2(config-if)# channel-group 1 mode on 
+B2-DSW2(config-if)#switchport  trunk  encasp dot1q 
+B2-DSW2(configif)#switchport  mode  trunk 
+B2-DSW2(config)#interface  vlan  10 
+B2-DSW2(config-if)#standby 10 ip 192.168.50.100
+B2-DSW2(config)#interface  vlan 20
+B2-DSW2(config-if)#standby 20 ip 192.168.60.100
+B2-DSW2(config)#interface  vlan 30
+B2-DSW2(config-if)#standby 30 ip 192.168.70.100
+B2-DSW2(config)#interface  vlan 40
+B2-DSW2(config-if)#standby 40 ip 192.168.80.100
+B2-DSW2(config)#ip domain-name branch2
+B2-DSW2(config)#crypto key gen rsa 
+B2-DSW2(config)#line vty 0 4  
+B2-DSW2(config-line)#transport input ssh 
+B2-DSW2(config-line)#login local 
+B2-DSW2(config-line)#exit
+B2-DSW2(config)username Admin pri 15 password 1234
+B2-DSW2(config)enable secret 1234
+B2-DSW2(config)int g0/1
+B2-DSW2(config-if)no switchport 
+B2-DSW2(config-if)ip add 12.0.0.2 255.0.0.0 
+B2-DSW2(config-if)no sh	
+B2-DSW2(config)#router eigrp 1
+B2-DSW2(config-router)# network 192.168.50.0 0.0.0.255 
+B2-DSW2(config-router)# network 192.168.60.0 0.0.0.255
+B2-DSW2(config-router)# network 192.168.70.0 0.0.0.255 
+B2-DSW2(config-router)# network 192.168.80.0 0.0.0.255 
+B2-DSW2(config-router)# network 12.0.0.0 0.255.255.255 area 0
+
+
+
+B2-core_R(config)#int f0/0
+B2-core_R(config-if)#ip add  12.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f0/1 
+B2-core_R(config-if)#ip add  14.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f1/0
+B2-core_R(config-if)#ip add  17.0.0.2 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f1/1
+B2-core_R(config-if)#ip add  19.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh 
+B2-core_R(config)#router eigrp 1
+B2-core_R(config-router)#network 12.0.0.0 0.255.255.255 
+B2-core_R(config-router)#network 14.0.0.0 0.255.255.255
+B2-core_R(config-router)#network 17.0.0.0 0.255.255.255
+B2-core_R(config-router)#network 19.0.0.0 0.255.255.255
+B2-core_R(config)#ip route 0.0.0.0 0.0.0.0 17.0.0.4
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+configruation Branch 3   VLAN ,inter VLAN ,HSRP,etherchannel ,ssh ,portsecurity ,bpdugruad,portfast ,ospf 
+
+
+
+
+
+
+name device =  ( B3-ASw1) 
+B2-ASW1(config-vlan)#name  Sales 
+B2-ASW1(config)#vlan 20
+B2-ASW1(config-vlan)#name  IT
+B2-ASW1(config)#vlan 30
+B2-ASW1(config-vlan)#name  HR
+B2-ASW1(config)#vlan 40
+B2-ASW1(config-vlan)#name  Manger 
+B2-ASW1(config)#interface range f0/5-7
+B2-ASW1(config-if-range)#switchport  mode  acces
+B2-ASW1(config-if-range)#switchport access vlan 10
+B2-ASW1(config)#interface range f0/5-7
+B2-ASW1(config-if-range)# switchport mode access
+B2-ASW1(config-if-range)# switchport port-security
+B2-ASW1(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW1(config-if-range)# switchport port-security violation restrict 
+B2-ASW1(config-if-range)# spanning-tree portfast
+B2-ASW1(config-if-range)# spanning-tree guard root
+B2-ASW1(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW1(config)#interface range f0/1-2
+B2-ASW1(config-if-range)#switchport  mode  trunk 
+
+
+name device =  ( B3-ASw2) 
+B2-ASW2(config)#vlan 10 
+B21-ASW2(config-vlan)#name  Sales 
+B2-ASW2(config)#vlan 20
+B2-ASW2(config-vlan)#name  IT
+B2-ASW2(config)#vlan 30
+B2-ASW2(config-vlan)#name  HR
+B2-ASW2(config)#vlan 40
+B2-ASW2(config-vlan)#name  Manger 
+B2-ASW2(config)#interface range f0/5-7
+B2-ASW2(config-if-range)#switchport  mode  acces
+B2-ASW2(config-if-range)#switchport access vlan 20
+B2-ASW2(config)#interface range f0/5-7
+B2-ASW2(config-if-range)# switchport mode access
+B2-ASW2(config-if-range)# switchport port-security
+B2-ASW2(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW2(config-if-range)# switchport port-security violation restrict 
+B2-ASW2(config-if-range)# spanning-tree portfast
+B2-ASW2(config-if-range)# spanning-tree guard root
+B2-ASW2(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW2(config)#interface range f0/1-2
+B2-ASW2(config-if-range)#switchport  mode  trunk 
+
+
+
+name device =  ( B3-ASw3)
+B2-ASW3(config)#vlan 10 
+B2-ASW3(config-vlan)#name  Sales 
+B-ASW3(config)#vlan 20
+B2-ASW3(config-vlan)#name  IT
+B2-ASW3(config)#vlan 30
+B2-ASW3(config-vlan)#name  HR
+B2-ASW3(config)#vlan 40
+B2-ASW3(config-vlan)#name  Manger 
+B2-ASW3(config)#interface range f0/5-7
+B2-ASW3(config-if-range)#switchport  mode  acces
+B2-ASW3(config-if-range)#switchport access vlan 30
+B2-ASW3(config)#interface range f0/5-7
+B2-ASW3(config-if-range)# switchport mode access
+B2-ASW3(config-if-range)# switchport port-security
+B2-ASW3(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW3(config-if-range)# switchport port-security violation restrict 
+B2-ASW3(config-if-range)# spanning-tree portfast
+B2-ASW3(config-if-range)# spanning-tree guard root
+B2-ASW3(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW3(config)#interface range f0/3-4
+B2-ASW3(config-if-range)#switchport  mode  trunk 2
+
+name device =  ( B3-ASw4)
+B2ASW4(config)#vlan 10 
+B2-ASW4(config-vlan)#name  Sales 
+B2-ASW4(config)#vlan 20
+B2-ASW4(config-vlan)#name  IT
+B2-ASW4(config)#vlan 30
+B2-ASW4(config-vlan)#name  HR
+B2-ASW4(config)#vlan 40
+B2-ASW4(config-vlan)#name  Manger 
+B2-ASW4(config)#interface range f0/5-7
+B2-ASW4(config-if-range)#switchport  mode  acces
+B2-ASW4(config-if-range)#switchport access vlan 40 
+B2-ASW4(config)#interface range f0/5-7
+B2-ASW4(config-if-range)# switchport mode access
+B2-ASW4(config-if-range)# switchport port-security
+B2-ASW4(config-if-range)#switchport port-security mac-address sticky 
+B2-ASW4(config-if-range)# switchport port-security violation restrict 
+B2-ASW4(config-if-range)# spanning-tree portfast
+B2-ASW4(config-if-range)# spanning-tree guard root
+B2-ASW4(config-if-range)# spanning-tree bpduguard enable 
+B2-ASW4(config)#interface range f0/3-4
+B2-ASW4(config-if-range)#switchport  mode  trunk 
+
+
+
+
+
+
+name device =  ( B3-DSw1) 
+
+B2-DSW1(config)#ip routing  ********** 
+B2-DSW1(config)#vlan 10 
+B2-DSW1(config-vlan)#name  Sales 
+B2-DSW1(config)#vlan 20
+B2-DSW1(config-vlan)#name  IT
+B2-DSW1(config)#vlan 30
+B2-DSW1(config-vlan)#name  HR
+B2-DSW1(config)#vlan 40
+B2-DSW1(config-vlan)#name  Manger 
+B2-DSW1(config)#interface range f0/1-4 
+B2-DSW1(config)#switchport  trunk  encasp dot1q 
+B2-DSW1(config)#switchport  mode  trunk 
+B2-DSW1(config)#interface  vlan  10 
+B2-DSW1(config-if)# ip add 192.168.90.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  20
+B2-DSW1(config-if)# ip add 192.168.100.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  30 
+B2-DSW1(config-if)# ip add 192.168.110.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface  vlan  40
+B2-DSW1(config-if)# ip add 192.168.120.1 255.255.255.0
+B2-DSW1(config-if)# no  sh	
+B2-DSW1(config)#interface range f0/23-24
+B2-DSW1(config-if)# channel-group 1 mode on 
+B2-DSW1(config-if)#switchport  trunk  encasp dot1q 
+B2-DSW1(configif)#switchport  mode  trunk 
+B2-DSW1(config)#interface  vlan  10 
+B2-DSW1(config-if)#standby 10 ip 192.168.90.100
+B2-DSW1(config)#interface  vlan 20
+B2-DSW1(config-if)#standby 20 ip 192.168.100.100
+B2-DSW1(config)#interface  vlan 30
+B2-DSW1(config-if)#standby 30 ip 192.168.110.100
+B2-DSW1(config)#interface  vlan 40
+B2-DSW1(config-if)#standby 40 ip 192.168.120.100
+B2-DSW1(config)#ip domain-name branch3
+B2-DSW1(config)#crypto key gen rsa 
+B2-DSW1(config)#line vty 0 4  
+B2-DSW1(config-line)#transport input ssh 
+B2-DSW1(config-line)#login local 
+B2-DSW1(config-line)#exit
+B2-DSW1(config)username Admin pri 15 password 1234
+B2-DSW1(config)enable secret 1234
+B2-DSW1(config)int g0/1
+B2-DSW1(config-if)no switchport 
+B2-DSW1(config-if)ip add 16.0.0.2 255.0.0.0 
+B2-DSW1(config-if)no sh	
+B2-DSW1(config)#router eigrp 1 
+B2-DSW1(config-router)# network 192.168.90.0 0.0.0.255 
+B2-DSW1(config-router)# network 192.168.100.0 0.0.0.255 
+B2-DSW1(config-router)# network 192.168.110.0 0.0.0.255
+B2-DSW1(config-router)# network 192.168.120.0 0.0.0.255 
+B2-DSW1(config-router)# network 16.0.0.0 0.255.255.255
+
+
+
+
+
+
+name device =  ( B3-DSw2) 
+B2-DSW2(config)#ip routing  ********** 
+B2-DSW2(config)#vlan 10 
+B2-DSW2(config-vlan)#name  Sales 
+B2-DSW2(config)#vlan 20
+B2-DSW2(config-vlan)#name  IT
+B2-DSW2(config)#vlan 30
+B2-DSW2(config-vlan)#name  HR
+B2-DSW2(config)#vlan 40
+B2-DSW2(config-vlan)#name  Manger 
+B2-DSW2(config)#interface range f0/1-4 
+B2-DSW2(config)#switchport  trunk  encasp dot1q 
+B2-DSW2(config)#switchport  mode  trunk 
+B2-DSW2(config)#interface  vlan  10 
+B2-DSW2(config-if)# ip add 192.168.90.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  20
+B2-DSW2(config-if)# ip add 192.168.100.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  30 
+B2-DSW2(config-if)# ip add 192.168.110.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface  vlan  40
+B2-DSW2(config-if)# ip add 192.168.120.2 255.255.255.0
+B2-DSW2(config-if)# no  sh	
+B2-DSW2(config)#interface range f0/23-24
+B2-DSW2(config-if)# channel-group 1 mode on 
+B2-DSW2(config-if)#switchport  trunk  encasp dot1q 
+B2-DSW2(configif)#switchport  mode  trunk 
+B2-DSW2(config)#interface  vlan  10 
+B2-DSW2(config-if)#standby 10 ip 192.168.90.100
+B2-DSW2(config)#interface  vlan 20
+B2-DSW2(config-if)#standby 20 ip 192.168.100.100
+B2-DSW2(config)#interface  vlan 30
+B2-DSW2(config-if)#standby 30 ip 192.168.110.100
+B2-DSW2(config)#interface  vlan 40
+B2-DSW2(config-if)#standby 40 ip 192.168.120.100
+B2-DSW2(config)#ip domain-name branch2
+B2-DSW2(config)#crypto key gen rsa 
+B2-DSW2(config)#line vty 0 4  
+B2-DSW2(config-line)#transport input ssh 
+B2-DSW2(config-line)#login local 
+B2-DSW2(config-line)#exit
+B2-DSW2(config)username Admin pri 15 password 1234
+B2-DSW2(config)enable secret 1234
+B2-DSW2(config)int g0/1
+B2-DSW2(config-if)no switchport 
+B2-DSW2(config-if)ip add 15.0.0.2 255.0.0.0 
+B2-DSW2(config-if)no sh	
+B2-DSW2(config)#router eigrp 1 
+B2-DSW2(config-router)# network 192.168.90.0 0.0.0.255
+B2-DSW2(config-router)# network 192.168.100.0 0.0.0.255
+B2-DSW2(config-router)# network 192.168.110.0 0.0.0.255 
+B2-DSW2(config-router)# network 192.168.120.0 0.0.0.255 
+B2-DSW2(config-router)# network 15.0.0.0 0.255.255.255 a
+
+
+
+name device =  ( B3-core-R) 
+B2-core_R(config)#int f0/0
+B2-core_R(config-if)#ip add  15.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f0/1 
+B2-core_R(config-if)#ip add  16.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f1/0
+B2-core_R(config-if)#ip add  17.0.0.3 255.0.0.0 
+B2-core_R(config-if)#no sh
+B2-core_R(config)#int f1/1
+B2-core_R(config-if)#ip add  20.0.0.1 255.0.0.0 
+B2-core_R(config-if)#no sh 
+B2-core_R(config)#router eigrp 1
+B2-core_R(config-router)#network 15.0.0.0 0.255.255.255 
+B2-core_R(config-router)#network 16.0.0.0 0.255.255.255 
+B2-core_R(config-router)#network 17.0.0.0 0.255.255.255 
+B2-core_R(config-router)#network 20.0.0.0 0.255.255.255 
+B3-core_R(config)#ip route 0.0.0.0 0.0.0.0 17.0.0.4
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////// 
+
+configruation ISP1,Center router   DHCP DNS  HTTP FTP Syslog NTP 
+
+Center_router(config)#router eigrp 1
+                       network 17.0.0.0 0.255.255.255 
+                        redistration static 
+
+Center_router(config)#ip router 0.0.0.0 0.0.0.0 1.1.1.2 
+
+
+Isp(config)# ip router 0.0.0.0 0.0.0.0 s0/1/0 
+
+
+
+given ip DHCP 192.168.1.10 
+         DNS 192.168.1.20 
+         FTP 192.168.1.30 
+         HTTP 192.168.1.40 
+       syslog 192.168.1.50 
+         NTP 192.168.1.60
+
+
+
+
+eanble DHCP on VLANS 
+
+
+
+enter all DSW in branch 1,2,3
+
+B2-DSW(config)#interface  vlan  10
+B2-DSW(config-if)#ip helper-add 192.168.1.10 
+B2-DSW(config)#interface  vlan  20
+B2-DSW(config-if)#ip helper-add 192.168.1.10 
+B2-DSW(config)#interface  vlan  30
+B2-DSW(config-if)#ip helper-add 192.168.1.10 
+B2-DSW(config)#interface  vlan  40
+B2-DSW(config-if)#ip helper-add 192.168.1.10   
+
+
+
+
+FTP -- 
+
+B1-core-R  (config)# ip ftp username Ahmed 
+                     i[ ftp password 1234
+
+B1-core-R  # copy run config  ftp : 
+             192.168.1.30 
+              Data_FTP 
+
+
+syslog----
+
+B1-core-R(config)#l
+logging  host  20.0.0.10
+
+service  timestamps  log  datetime  mse
+login on-success log 
+login on-failure log
+B1-core-R#clock  set 16:15:00  9  September 2024 
+
+
+NTP ----- 
+
+B1-core-R(config)# ntp server  20.0.0.10
+                 ntp authenticate
+                 ntp trusted-key 1
+                 ntp authentication-key 1 md5 cisco
+                 ntp update-calendar
+     
+
+B1-core-R#show clock detail
+
+
+
+
+PPP--------------
+
+between B1-core-R  and  isp1  
+
+B1-core-R (config)#username isp1 password 123
+B1-core-R (config)#int s0/1/0
+                   encapsaultion pppp 
+                   ppp authencation chap 
+
+ISP1 (config)#username B1-core-R password 123
+isp21(config)#int s0/1/0
+                   encapsaultion ppp
+                   ppp authencation chap  
+
+
+ACL --------------------------------  
+
+
+
+B1-DSW1,2 
+access-list 100 deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 
+access-list 100 permit ip any any 
+
+int vlan 20 
+ip access-group 100 in 
+
+
+B2-DSW1,2 
+access-list 110 deny ip 192.168.60.0 0.0.0.255 192.168.50.0 0.0.0.255 
+access-list 110 permit ip any any 
+
+int vlan 20 
+ip access-group 110 in 
+
+
+B3-DSW1,2 
+access-list 120 deny ip 192.168.100.0 0.0.0.255 192.168.90.0 0.0.0.255 
+access-list 120 permit ip any any 
+
+int vlan 20 
+ip access-group 120 in 
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+ip access-list exteand ACL1
+    permit tcp 192.168.20.0 0.0.0.255 host 129.134.30.12 eq www
+    permit tcp 192.168.20.0 0.0.0.255 host 129.134.30.12 eq 443
+    permit tcp 192.168.20.0 0.0.0.255 host 129.134.31.12 eq www
+    permit tcp 192.168.20.0 0.0.0.255 host 129.134.31.12 eq 443
+    permit tcp 192.168.20.0 0.0.0.255 host 185.89.218.12 eq www
+    permit tcp 192.168.20.0 0.0.0.255 host 185.89.218.12 eq 443
+    permit tcp 192.168.20.0 0.0.0.255 host 185.89.219.12 eq www
+    permit tcp 192.168.20.0 0.0.0.255 host 185.89.219.12 eq 443
+    deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+    permit ip any  any
+
+
+
+
+int vlan 20 
+ip access-group ACL1 in
+
+
+
+
+ip access-list exteand ACL2
+    permit tcp 192.168.60.0 0.0.0.255 host 129.134.30.12 eq www
+    permit tcp 192.168.60.0 0.0.0.255 host 129.134.30.12 eq 443
+    permit tcp 192.168.60.0 0.0.0.255 host 129.134.31.12 eq www
+    permit tcp 192.168.60.0 0.0.0.255 host 129.134.31.12 eq 443
+    permit tcp 192.168.60.0 0.0.0.255 host 185.89.218.12 eq www
+    permit tcp 192.168.60.0 0.0.0.255 host 185.89.218.12 eq 443
+    permit tcp 192.168.60.0 0.0.0.255 host 185.89.219.12 eq www
+    permit tcp 192.168.60.0 0.0.0.255 host 185.89.219.12 eq 443
+
+
+    deny ip 192.168.60.0 0.0.0.255 192.168.50.0 0.0.0.255
+    permit ip 192.168.60.0 0.0.0.255 any
+
+
+
+
+int vlan 20 
+ip access-group ACL2 in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ip access-list exteand ACL3
+    permit tcp 192.168.100.0 0.0.0.255 host 129.134.30.12 eq www
+    permit tcp 192.168.100.0 0.0.0.255 host 129.134.30.12 eq 443
+    permit tcp 192.168.100.0 0.0.0.255 host 129.134.31.12 eq www
+    permit tcp 192.168.100.0 0.0.0.255 host 129.134.31.12 eq 443
+    permit tcp 192.168.100.0 0.0.0.255 host 185.89.218.12 eq www
+    permit tcp 192.168.100.0 0.0.0.255 host 185.89.218.12 eq 443
+    permit tcp 192.168.100.0 0.0.0.255 host 185.89.219.12 eq www
+    permit tcp 192.168.100.0 0.0.0.255 host 185.89.219.12 eq 443
+    deny ip 192.168.100.0 0.0.0.255 192.168.90.0 0.0.0.255
+    permit ip 192.168.100.0 0.0.0.255 any
+
+
+
+
+int vlan 20 
+ip access-group ACL3 in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
